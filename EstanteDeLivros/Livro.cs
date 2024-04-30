@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 internal class Livro
 {
     public string titulo;
-    public string autores;
+    public string[] autores = new string[5];
     public DateOnly lancamento;
     public string editora;
     public int edicao;
@@ -24,7 +24,7 @@ internal class Livro
         this.titulo = titulo;
     }
 
-    public void DefinirAutores(string autores)
+    public void DefinirAutores(string[] autores)
     {
         this.autores = autores;
     }
@@ -56,7 +56,11 @@ internal class Livro
     {
         Console.WriteLine();
         Console.WriteLine("Titulo:" + titulo);
-        Console.WriteLine("Autores: " + autores);
+        Console.WriteLine("Autores:");
+        for (int i = 0; i < this.autores.Length; i++)
+        {
+            ImprimirAutores(autores[i]);
+        }
         Console.WriteLine("Editora: " + editora);
         Console.WriteLine("ISBN: " + ISBN);
         Console.WriteLine("Edição: " +edicao);
@@ -66,5 +70,9 @@ internal class Livro
 
     }
 
+    private void ImprimirAutores(String autor)
+    {
+            Console.WriteLine(autor);      
+    }
 }
 
